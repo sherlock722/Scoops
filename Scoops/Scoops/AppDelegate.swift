@@ -12,6 +12,8 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    //Comprobamos que los frameworks (dependencias) se han linkado correctamente (Azure Storage)
+    var accout: AZSCloudStorageAccount?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {

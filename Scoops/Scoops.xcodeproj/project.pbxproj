@@ -8,19 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		3B0CC0711C8A0C230043F97C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0CC0701C8A0C230043F97C /* AppDelegate.swift */; };
-		3B0CC0731C8A0C230043F97C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0CC0721C8A0C230043F97C /* ViewController.swift */; };
 		3B0CC0761C8A0C230043F97C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B0CC0741C8A0C230043F97C /* Main.storyboard */; };
 		3B0CC0781C8A0C230043F97C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B0CC0771C8A0C230043F97C /* Assets.xcassets */; };
 		3B0CC07B1C8A0C230043F97C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B0CC0791C8A0C230043F97C /* LaunchScreen.storyboard */; };
 		3B0CC0831C8A0EFD0043F97C /* Azure Storage Client Library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B0CC0821C8A0EFD0043F97C /* Azure Storage Client Library.framework */; };
 		3B0CC0851C8A0F5F0043F97C /* WindowsAzureMobileServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B0CC0841C8A0F5F0043F97C /* WindowsAzureMobileServices.framework */; };
 		3B0CC0891C8A102A0043F97C /* AzFake.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0CC0881C8A102A0043F97C /* AzFake.m */; };
+		3B0CC08B1C8A17B40043F97C /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B0CC08A1C8A17B40043F97C /* libxml2.2.tbd */; };
+		3B0CC08E1C8A35410043F97C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0CC08D1C8A35410043F97C /* ViewController.swift */; };
+		3B0CC0911C8A37340043F97C /* NoticeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0CC0901C8A37340043F97C /* NoticeTableViewController.swift */; };
+		3B0CC0931C8A41770043F97C /* CreateNoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0CC0921C8A41770043F97C /* CreateNoticeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3B0CC06D1C8A0C230043F97C /* Scoops.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scoops.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B0CC0701C8A0C230043F97C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3B0CC0721C8A0C230043F97C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3B0CC0751C8A0C230043F97C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3B0CC0771C8A0C230043F97C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B0CC07A1C8A0C230043F97C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -30,6 +32,10 @@
 		3B0CC0861C8A10290043F97C /* Scoops-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Scoops-Bridging-Header.h"; sourceTree = "<group>"; };
 		3B0CC0871C8A102A0043F97C /* AzFake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AzFake.h; path = Scoops/AzFake.h; sourceTree = "<group>"; };
 		3B0CC0881C8A102A0043F97C /* AzFake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AzFake.m; path = Scoops/AzFake.m; sourceTree = "<group>"; };
+		3B0CC08A1C8A17B40043F97C /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
+		3B0CC08D1C8A35410043F97C /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3B0CC0901C8A37340043F97C /* NoticeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeTableViewController.swift; sourceTree = "<group>"; };
+		3B0CC0921C8A41770043F97C /* CreateNoticeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNoticeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B0CC08B1C8A17B40043F97C /* libxml2.2.tbd in Frameworks */,
 				3B0CC0851C8A0F5F0043F97C /* WindowsAzureMobileServices.framework in Frameworks */,
 				3B0CC0831C8A0EFD0043F97C /* Azure Storage Client Library.framework in Frameworks */,
 			);
@@ -48,6 +55,7 @@
 		3B0CC0641C8A0C230043F97C = {
 			isa = PBXGroup;
 			children = (
+				3B0CC08A1C8A17B40043F97C /* libxml2.2.tbd */,
 				3B0CC0871C8A102A0043F97C /* AzFake.h */,
 				3B0CC0881C8A102A0043F97C /* AzFake.m */,
 				3B0CC0861C8A10290043F97C /* Scoops-Bridging-Header.h */,
@@ -70,13 +78,23 @@
 			isa = PBXGroup;
 			children = (
 				3B0CC0701C8A0C230043F97C /* AppDelegate.swift */,
-				3B0CC0721C8A0C230043F97C /* ViewController.swift */,
+				3B0CC08F1C8A36E50043F97C /* Controllers */,
 				3B0CC0741C8A0C230043F97C /* Main.storyboard */,
 				3B0CC0771C8A0C230043F97C /* Assets.xcassets */,
 				3B0CC0791C8A0C230043F97C /* LaunchScreen.storyboard */,
 				3B0CC07C1C8A0C230043F97C /* Info.plist */,
 			);
 			path = Scoops;
+			sourceTree = "<group>";
+		};
+		3B0CC08F1C8A36E50043F97C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3B0CC08D1C8A35410043F97C /* ViewController.swift */,
+				3B0CC0901C8A37340043F97C /* NoticeTableViewController.swift */,
+				3B0CC0921C8A41770043F97C /* CreateNoticeViewController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,9 +169,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B0CC0731C8A0C230043F97C /* ViewController.swift in Sources */,
+				3B0CC08E1C8A35410043F97C /* ViewController.swift in Sources */,
 				3B0CC0711C8A0C230043F97C /* AppDelegate.swift in Sources */,
+				3B0CC0931C8A41770043F97C /* CreateNoticeViewController.swift in Sources */,
 				3B0CC0891C8A102A0043F97C /* AzFake.m in Sources */,
+				3B0CC0911C8A37340043F97C /* NoticeTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,6 +219,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -217,7 +238,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -244,6 +265,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -277,6 +299,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Scoops-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VALID_ARCHS = "arm64 armv7 armv7s x86_64";
 			};
 			name = Debug;
 		};

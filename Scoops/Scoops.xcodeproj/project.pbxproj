@@ -18,6 +18,8 @@
 		3B0CC08E1C8A35410043F97C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0CC08D1C8A35410043F97C /* ViewController.swift */; };
 		3B0CC0911C8A37340043F97C /* NoticeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0CC0901C8A37340043F97C /* NoticeTableViewController.swift */; };
 		3B0CC0931C8A41770043F97C /* CreateNoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0CC0921C8A41770043F97C /* CreateNoticeViewController.swift */; };
+		3B70BC671C8B2B0900096214 /* DetailNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B70BC661C8B2B0900096214 /* DetailNewsViewController.swift */; };
+		3B70BC6B1C8B8DD800096214 /* helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B70BC6A1C8B8DD800096214 /* helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		3B0CC08D1C8A35410043F97C /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3B0CC0901C8A37340043F97C /* NoticeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeTableViewController.swift; sourceTree = "<group>"; };
 		3B0CC0921C8A41770043F97C /* CreateNoticeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNoticeViewController.swift; sourceTree = "<group>"; };
+		3B70BC661C8B2B0900096214 /* DetailNewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailNewsViewController.swift; sourceTree = "<group>"; };
+		3B70BC6A1C8B8DD800096214 /* helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = helpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,7 @@
 				3B0CC0871C8A102A0043F97C /* AzFake.h */,
 				3B0CC0881C8A102A0043F97C /* AzFake.m */,
 				3B0CC0861C8A10290043F97C /* Scoops-Bridging-Header.h */,
+				3B70BC6A1C8B8DD800096214 /* helpers.swift */,
 				3B0CC06F1C8A0C230043F97C /* Scoops */,
 				3B0CC06E1C8A0C230043F97C /* Products */,
 				3B0CC0841C8A0F5F0043F97C /* WindowsAzureMobileServices.framework */,
@@ -93,6 +98,7 @@
 				3B0CC08D1C8A35410043F97C /* ViewController.swift */,
 				3B0CC0901C8A37340043F97C /* NoticeTableViewController.swift */,
 				3B0CC0921C8A41770043F97C /* CreateNoticeViewController.swift */,
+				3B70BC661C8B2B0900096214 /* DetailNewsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -169,10 +175,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B70BC6B1C8B8DD800096214 /* helpers.swift in Sources */,
 				3B0CC08E1C8A35410043F97C /* ViewController.swift in Sources */,
 				3B0CC0711C8A0C230043F97C /* AppDelegate.swift in Sources */,
 				3B0CC0931C8A41770043F97C /* CreateNoticeViewController.swift in Sources */,
 				3B0CC0891C8A102A0043F97C /* AzFake.m in Sources */,
+				3B70BC671C8B2B0900096214 /* DetailNewsViewController.swift in Sources */,
 				3B0CC0911C8A37340043F97C /* NoticeTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,6 +347,7 @@
 				3B0CC0811C8A0C230043F97C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

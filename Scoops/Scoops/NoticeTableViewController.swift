@@ -14,13 +14,15 @@ class NoticeTableViewController: UITableViewController {
     //Configurar el MSClient. Los datos se sacan de la consola de azure del servicio MBaaS creado
     let client = MSClient (applicationURL: NSURL(string: "https://fjcscoops.azure-mobile.net/"), applicationKey: "AuKAmzYsYjoMMdArOSxIcfrxwFnfBc34")
     
+    //Modelo
     var model : [AnyObject]?
 
+    
+    //Para refresecar la Tabla
     @IBAction func refreshTable(sender: AnyObject) {
         
         //Actualizar el modelo y la vista...
         self.populateModel()
-        //self.tableView.reloadData()
         
         
         //Terminar el refresh
@@ -31,6 +33,7 @@ class NoticeTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //self.view.backgroundColor = UIColor.orangeColor()
         
         self.title = "News"
         let plusButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addNews:")
@@ -63,24 +66,19 @@ class NoticeTableViewController: UITableViewController {
     
     
     // MARK: - Utils
-    
-    
     func populateModel (){
         
         
-        
-        //Representa la tabla de los videos
+        //Se obtiene con client la tabla de las noticias
         let noticeTable = client?.tableWithName("news")
         
         
         //Obtener datos via MSQuery
         
-        //Se necesita una tabla
+        //Se recuperea la tabla de noticias una tabla
         let query = MSQuery(table: noticeTable)
         
-        // Incluir predicados, constrains para filtrar, para limitar el numero de filas o delimitar el numero de columnas
-        
-        //Ordenar por titulo
+        //Ordenar por título
         query.orderByAscending("title")
         
         
@@ -94,14 +92,19 @@ class NoticeTableViewController: UITableViewController {
         
     }
     
-
+    //MARK - Sincronizar Modelo y Vista
+    
+    //Se recupera la información del modelo y se pinta en la vista
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         
         let cell = tableView.dequeueReusableCellWithIdentifier("news", forIndexPath: indexPath)
 
         //Sincronización vista y modelo
+        //cell.backgroundColor = UIColor.greenColor()
+        //cell.textLabel?.backgroundColor = UIColor.redColor()
         cell.textLabel?.text = model![indexPath.row]["title"] as? String
+        //cell.detailTextLabel?.text = model![indexPath.row]["createnews"] as? String
 
         return cell
     }
@@ -117,7 +120,6 @@ class NoticeTableViewController: UITableViewController {
     //Añadir una nueva Noticia
     func addNews(sender : AnyObject){
         //Lanzamos el segur para ir de un controlador a otro
-        //El nombre de la escena es addNewItem
         performSegueWithIdentifier("addNews", sender: sender)
         
     }
@@ -130,7 +132,7 @@ class NoticeTableViewController: UITableViewController {
         
         //Referencia al controlador destino y se le pasa el NSClient creado desde esta clase
         guard let identifier = segue.identifier else{
-            print("no tenemos identifier")
+            print("No Identifier")
             return
         }
         
@@ -142,9 +144,10 @@ class NoticeTableViewController: UITableViewController {
             break
         case "detailNews":
             let index = sender as? NSIndexPath
-            let vc = segue.destinationViewController as! CreateNoticeViewController //Cambiar la clase
-            vc.client = client
-            //vc.record = model![(index?.row)!]
+            let vc = segue.destinationViewController as! DetailNewsViewController
+            //Se pasa como parametro el client y el registro del modelo que se ha selsccionado.
+            //vc.client = client
+            vc.model = model![(index?.row)!]
             break
         default: break
             

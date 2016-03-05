@@ -16,9 +16,22 @@ class NoticeTableViewController: UITableViewController {
     
     var model : [AnyObject]?
 
+    @IBAction func refreshTable(sender: AnyObject) {
+        
+        //Actualizar el modelo y la vista...
+        self.populateModel()
+        //self.tableView.reloadData()
+        
+        
+        //Terminar el refresh
+        sender.endRefreshing()
+        
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
         self.title = "News"
         let plusButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addNews:")
         self.navigationItem.rightBarButtonItem = plusButton
@@ -53,6 +66,8 @@ class NoticeTableViewController: UITableViewController {
     
     
     func populateModel (){
+        
+        
         
         //Representa la tabla de los videos
         let noticeTable = client?.tableWithName("news")

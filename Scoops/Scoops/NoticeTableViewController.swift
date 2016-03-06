@@ -59,7 +59,7 @@ class NoticeTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
-        return "News"
+        return "News List"
         
     }
     
@@ -111,12 +111,10 @@ class NoticeTableViewController: UITableViewController {
 
         //Sincronización vista y modelo
         cell.textLabel?.text = model![indexPath.row]["title"] as? String
+        let dateString = ((model![indexPath.row]["createnews"]))!!.description
+        //print (date)
+        cell.detailTextLabel?.text = dateString
         
-        print ((model![indexPath.row]["createnews"]))
-        
-        
-        cell.detailTextLabel?.text = model![indexPath.row]["createnews"] as? String
-
         return cell
     }
     
@@ -171,7 +169,7 @@ class NoticeTableViewController: UITableViewController {
             let index = sender as? NSIndexPath
             let vc = segue.destinationViewController as! DetailNewsViewController
             //Se pasa como parametro el client y el registro del modelo que se ha seleccionado.
-            //vc.client = client
+            vc.client = client
             vc.model = model![(index?.row)!]
             break
         default: break

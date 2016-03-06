@@ -180,25 +180,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title News:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tlt-oq-2iO">
-                                <rect key="frame" x="23" y="102" width="85" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.23493627280000001" green="0.1102525065" blue="0.85455587639999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Text News:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6Z-De-Ggo">
-                                <rect key="frame" x="20" y="187" width="85" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.23493627280000001" green="0.1102525065" blue="0.85455587639999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UJO-NO-veR">
-                                <rect key="frame" x="20" y="131" width="383" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <webView contentMode="scaleAspectFill" ambiguous="YES" misplaced="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xvh-gq-ADr">
+                                <rect key="frame" x="18" y="72" width="339" height="275"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
                             <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sT9-ms-Qt9">
-                                <rect key="frame" x="23" y="209" width="383" height="340"/>
+                                <rect key="frame" x="18" y="355" width="339" height="196"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -207,12 +194,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="sT9-ms-Qt9" firstAttribute="centerX" secondItem="yy0-I7-Bcu" secondAttribute="centerX" id="LCH-Rp-qWW"/>
-                            <constraint firstItem="UJO-NO-veR" firstAttribute="centerX" secondItem="yy0-I7-Bcu" secondAttribute="centerX" id="eqK-eR-XC3"/>
+                            <constraint firstItem="Xvh-gq-ADr" firstAttribute="centerX" secondItem="yy0-I7-Bcu" secondAttribute="centerX" id="uQY-nI-7I9"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="loadImageNews" destination="Xvh-gq-ADr" id="ijC-Zo-pMi"/>
                         <outlet property="textNews" destination="sT9-ms-Qt9" id="DB6-B5-uuQ"/>
-                        <outlet property="titleNews" destination="UJO-NO-veR" id="7RI-zA-1gq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z30-E9-Ojf" userLabel="First Responder" sceneMemberID="firstResponder"/>

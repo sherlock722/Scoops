@@ -75,7 +75,7 @@ class CreateNoticeViewController: UIViewController {
                     //Se asigna nombre al blob
                     self.myBlobName = "photonews-\(NSUUID().UUIDString).png"
         
-                    tablaVideos?.insert(["title" : titleText.text!, "text" : textNews.text!, "author" : authorNews.text!, "createnews" : NSDate(), "blob_name" : self.myBlobName!], completion: { (inserted, error: NSError?) -> Void in
+                    tablaVideos?.insert(["title" : titleText.text!, "text" : textNews.text!, "author" : authorNews.text!, "createnews" : NSDate(), "blob_name" : self.myBlobName!, "status" : "Not Published", "containername" : "photonotice", "latitude" : self.latitude!, "longitude" : self.longitude!], completion: { (inserted, error: NSError?) -> Void in
             
                     if error != nil{
                         print("Error -> : \(error)")
@@ -127,11 +127,14 @@ class CreateNoticeViewController: UIViewController {
         //Localizacion
         //Se recupera la localizacion
         let locationManager = CLLocationManager()
-        locationManager.requestWhenInUseAuthorization()
+        //locationManager.requestWhenInUseAuthorization()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
         
+        //Valores de longitud y latitud - No me funciona el recuperar coordenadas
+        self.longitude=0
+        self.latitude=0
         
         /*print ("Localizacion")
         print (self.longitude)
@@ -144,7 +147,7 @@ class CreateNoticeViewController: UIViewController {
         textNews.textColor = UIColor.lightGrayColor()
         
         //Titulo
-        self.title = "New News"
+        self.title = "New"
         
         //boton con la camara para capturar el video
         //Se llama al metodo capturarVideo:
@@ -316,8 +319,10 @@ extension CreateNoticeViewController: CLLocationManagerDelegate{
         let locationArray = locations as NSArray
         let locationObj = locationArray.lastObject as! CLLocation
         let coord = locationObj.coordinate
-        self.longitude = coord.longitude
-        self.latitude = coord.latitude
+        //self.longitude = coord.longitude
+        //self.latitude = coord.latitude
+        self.longitude = 0
+        self.latitude = 0
         
     }
     

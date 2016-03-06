@@ -12,9 +12,8 @@ class NoticeTableViewController: UITableViewController {
     
     
     //Configurar el MSClient. Los datos se sacan de la consola de azure del servicio MBaaS
-    let client = MSClient (applicationURL: NSURL(string: "https://fjcscoops.azure-mobile.net/"), applicationKey: "AuKAmzYsYjoMMdArOSxIcfrxwFnfBc34")
+    let client = MSClient (applicationURL: NSURL(string: "https://fjcscoops.azure-mobile.net/"), applicationKey: "fZbvnCXlriLIBXTDEyPYQhEsFlKqGg69")
     
-    //AuKAmzYsYjoMMdArOSxIcfrxwFnfBc34
     
     //Modelo
     var model : [AnyObject]?
@@ -34,6 +33,7 @@ class NoticeTableViewController: UITableViewController {
         
     }
     override func viewDidLoad() {
+        
         super.viewDidLoad()
 
         
@@ -84,7 +84,7 @@ class NoticeTableViewController: UITableViewController {
         
         //Obtener datos via MSQuery
         
-        //Se recuperea la tabla de noticias una tabla
+        //Se recuperan las noticias de la tabla de noticias
         let query = MSQuery(table: newsTable)
         
         //Ordenar por título
@@ -111,9 +111,28 @@ class NoticeTableViewController: UITableViewController {
 
         //Sincronización vista y modelo
         cell.textLabel?.text = model![indexPath.row]["title"] as? String
-        //cell.detailTextLabel?.text = model![indexPath.row]["createnews"] as? String
+        
+        print ((model![indexPath.row]["createnews"]))
+        
+        
+        cell.detailTextLabel?.text = model![indexPath.row]["createnews"] as? String
 
         return cell
+    }
+    
+    // Override to support editing the table view.
+    //Borrar un registro del modelo
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            // Delete the row from the data source
+            tableView.beginUpdates()
+            
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            model!.removeAtIndex(indexPath.row)
+            
+            
+            tableView.endUpdates()
+        }
     }
 
     

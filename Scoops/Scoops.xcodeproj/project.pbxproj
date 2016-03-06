@@ -20,6 +20,8 @@
 		3B0CC0931C8A41770043F97C /* CreateNoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0CC0921C8A41770043F97C /* CreateNoticeViewController.swift */; };
 		3B70BC671C8B2B0900096214 /* DetailNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B70BC661C8B2B0900096214 /* DetailNewsViewController.swift */; };
 		3B70BC6B1C8B8DD800096214 /* helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B70BC6A1C8B8DD800096214 /* helpers.swift */; };
+		3B9169971C8C60CE00B72B71 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B9169961C8C60CE00B72B71 /* CoreLocation.framework */; };
+		3B9169991C8C9F1300B72B71 /* images.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 3B9169981C8C9F1300B72B71 /* images.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		3B0CC0921C8A41770043F97C /* CreateNoticeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNoticeViewController.swift; sourceTree = "<group>"; };
 		3B70BC661C8B2B0900096214 /* DetailNewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailNewsViewController.swift; sourceTree = "<group>"; };
 		3B70BC6A1C8B8DD800096214 /* helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = helpers.swift; sourceTree = "<group>"; };
+		3B9169961C8C60CE00B72B71 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		3B9169981C8C9F1300B72B71 /* images.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = images.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B9169971C8C60CE00B72B71 /* CoreLocation.framework in Frameworks */,
 				3B0CC08B1C8A17B40043F97C /* libxml2.2.tbd in Frameworks */,
 				3B0CC0851C8A0F5F0043F97C /* WindowsAzureMobileServices.framework in Frameworks */,
 				3B0CC0831C8A0EFD0043F97C /* Azure Storage Client Library.framework in Frameworks */,
@@ -59,6 +64,7 @@
 		3B0CC0641C8A0C230043F97C = {
 			isa = PBXGroup;
 			children = (
+				3B9169981C8C9F1300B72B71 /* images.jpeg */,
 				3B0CC08A1C8A17B40043F97C /* libxml2.2.tbd */,
 				3B0CC0871C8A102A0043F97C /* AzFake.h */,
 				3B0CC0881C8A102A0043F97C /* AzFake.m */,
@@ -66,6 +72,7 @@
 				3B70BC6A1C8B8DD800096214 /* helpers.swift */,
 				3B0CC06F1C8A0C230043F97C /* Scoops */,
 				3B0CC06E1C8A0C230043F97C /* Products */,
+				3B9169961C8C60CE00B72B71 /* CoreLocation.framework */,
 				3B0CC0841C8A0F5F0043F97C /* WindowsAzureMobileServices.framework */,
 				3B0CC0821C8A0EFD0043F97C /* Azure Storage Client Library.framework */,
 			);
@@ -163,6 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B0CC07B1C8A0C230043F97C /* LaunchScreen.storyboard in Resources */,
+				3B9169991C8C9F1300B72B71 /* images.jpeg in Resources */,
 				3B0CC0781C8A0C230043F97C /* Assets.xcassets in Resources */,
 				3B0CC0761C8A0C230043F97C /* Main.storyboard in Resources */,
 			);

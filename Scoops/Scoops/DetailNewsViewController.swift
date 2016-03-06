@@ -21,6 +21,8 @@ class DetailNewsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+         self.view.backgroundColor = UIColor.orangeColor()
 
         // Do any additional setup after loading the view.
         //self.title = model?.title

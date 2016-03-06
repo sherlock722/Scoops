@@ -8,6 +8,7 @@
 
 import UIKit
 import MobileCoreServices
+import CoreLocation
 
 class CreateNoticeViewController: UIViewController {
     
@@ -17,6 +18,12 @@ class CreateNoticeViewController: UIViewController {
     
     //Nombre del Blob
     var myBlobName : String?
+    
+    //Localizacion
+    //let locationManager = CLLocationManager()
+    var longitude : Double?
+    var latitude : Double?
+    var location : CLLocation?
     
     
     // MARK: - @IBOutlet
@@ -61,10 +68,14 @@ class CreateNoticeViewController: UIViewController {
                     client!.currentUser = MSUser(userId: usrlogin.usr)
                     client!.currentUser.mobileServiceAuthenticationToken = usrlogin.tok
                     
+                    
                 //Usando la propiedad client se accede a la tabla de las noticias para poder insertar
                 let tablaVideos = client?.tableWithName("news")
+                    
+                    //Se asigna nombre al blob
+                    self.myBlobName = "photonews-\(NSUUID().UUIDString).png"
         
-                tablaVideos?.insert(["title" : titleText.text!, "text" : textNews.text!, "author" : authorNews.text!, "createnews" : NSDate()], completion: { (inserted, error: NSError?) -> Void in
+                    tablaVideos?.insert(["title" : titleText.text!, "text" : textNews.text!, "author" : authorNews.text!, "createnews" : NSDate(), "blob_name" : self.myBlobName!], completion: { (inserted, error: NSError?) -> Void in
             
                     if error != nil{
                         print("Error -> : \(error)")
@@ -73,7 +84,7 @@ class CreateNoticeViewController: UIViewController {
                         print ("OK Insert Tabla")
                 
                         //Subimos la imagen, convertido en NSData, al storage con el método creado uploadToStorage
-                        self.myBlobName = "photonews-\(NSUUID().UUIDString).png"
+                        
                         self.uploadToStorage(UIImagePNGRepresentation (self.imageNews.image!)!, blobName: self.myBlobName!)
                         
                     }
@@ -112,6 +123,21 @@ class CreateNoticeViewController: UIViewController {
 
         self.view.backgroundColor = UIColor.orangeColor()
         
+        
+        //Localizacion
+        //Se recupera la localizacion
+        let locationManager = CLLocationManager()
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.startUpdatingLocation()
+        
+        
+        /*print ("Localizacion")
+        print (self.longitude)
+        print (self.latitude)*/
+        
+        
         //Se prepara el campo texto de la noticia como si tuviera placeholder
         textNews.delegate = self
         textNews.text = "Text News"
@@ -136,12 +162,14 @@ class CreateNoticeViewController: UIViewController {
     //MARK: - Guardar en AZURE (Storage)
     func uploadToStorage(data : NSData, blobName : String){
         
+        //Se deshabilita el botón
+        self.saveInAzure.enabled = false
         
         //Utilizamos el método invokeAPI para llamar a nuestro CustomAPI que hemos creado en AZURE
         client?.invokeAPI("urlsastoblobandcontainer",
             body: nil,
             HTTPMethod: "GET",
-            parameters: ["blobName" : blobName, "containerName" : "photonotice"],//ContainerName que existe
+            parameters: ["blobName" : myBlobName!, "containerName" : "photonotice"],//ContainerName que existe
             headers: nil,
             completion: { (result : AnyObject?, response : NSHTTPURLResponse?, error: NSError?) -> Void in
                 
@@ -150,17 +178,22 @@ class CreateNoticeViewController: UIViewController {
                     
                     // Solo es la ruta del container/blob + la SASURL
                     let sasURL = result!["sasUrl"] as? String
+                    //print ("sasurl \(sasURL)")
                     
                     //url del endpoint de Storage
                     var endPoint = "https://fjcscoopsstorage.blob.core.windows.net"
                     
                     //URL completa para subir el recurso
                     endPoint += sasURL!
-                    print ("endpoint \(endPoint)")
+                    
+                    //let credentials = AZSStorageCredentials(SASToken: sasURL!)
+                    //print ("endpoint \(endPoint)")
                     
                     
                     //Obtenemos la referencia del container de Azure Storage
                     let container = AZSCloudBlobContainer(url: NSURL(string: endPoint)!)
+                    
+                    //let container = AZSCloudBlobContainer(url: NSURL(string: "https://fjcscoopsstorage.blob.core.windows.net/photonotice")!, credentials: credentials)
                     
                     
                     // Tengo que subir a partir de nuestro blob local
@@ -183,6 +216,7 @@ class CreateNoticeViewController: UIViewController {
                                 })
                             } else {
                                 print("Error -> \(error)")
+                                self.saveInAzure.enabled = false
                             }
                             
                     })
@@ -270,6 +304,32 @@ extension CreateNoticeViewController: UIImagePickerControllerDelegate{
         // Cerrar seleccion de imágenes  al pulsar  cancelar
         dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    
+}
+
+extension CreateNoticeViewController: CLLocationManagerDelegate{
+    
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        let locationArray = locations as NSArray
+        let locationObj = locationArray.lastObject as! CLLocation
+        let coord = locationObj.coordinate
+        self.longitude = coord.longitude
+        self.latitude = coord.latitude
+        
+    }
+    
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        
+        print("Error while updating location " + error.localizedDescription)
+        //Longitud y Latitud
+        self.longitude = 0
+        self.latitude = 0
+        
+    }
+    
     
     
 }

@@ -11,8 +11,10 @@ import UIKit
 class NoticeTableViewController: UITableViewController {
     
     
-    //Configurar el MSClient. Los datos se sacan de la consola de azure del servicio MBaaS creado
+    //Configurar el MSClient. Los datos se sacan de la consola de azure del servicio MBaaS
     let client = MSClient (applicationURL: NSURL(string: "https://fjcscoops.azure-mobile.net/"), applicationKey: "AuKAmzYsYjoMMdArOSxIcfrxwFnfBc34")
+    
+    //AuKAmzYsYjoMMdArOSxIcfrxwFnfBc34
     
     //Modelo
     var model : [AnyObject]?
@@ -23,6 +25,7 @@ class NoticeTableViewController: UITableViewController {
         
         //Actualizar el modelo y la vista...
         self.populateModel()
+        self.tableView.reloadData()
         
         
         //Terminar el refresh
@@ -33,7 +36,6 @@ class NoticeTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //self.view.backgroundColor = UIColor.orangeColor()
         
         self.title = "News"
         let plusButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addNews:")
@@ -54,6 +56,13 @@ class NoticeTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        return "News"
+        
+    }
+    
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -70,13 +79,13 @@ class NoticeTableViewController: UITableViewController {
         
         
         //Se obtiene con client la tabla de las noticias
-        let noticeTable = client?.tableWithName("news")
+        let newsTable = client?.tableWithName("news")
         
         
         //Obtener datos via MSQuery
         
         //Se recuperea la tabla de noticias una tabla
-        let query = MSQuery(table: noticeTable)
+        let query = MSQuery(table: newsTable)
         
         //Ordenar por título
         query.orderByAscending("title")
@@ -101,8 +110,6 @@ class NoticeTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("news", forIndexPath: indexPath)
 
         //Sincronización vista y modelo
-        //cell.backgroundColor = UIColor.greenColor()
-        //cell.textLabel?.backgroundColor = UIColor.redColor()
         cell.textLabel?.text = model![indexPath.row]["title"] as? String
         //cell.detailTextLabel?.text = model![indexPath.row]["createnews"] as? String
 
@@ -111,15 +118,14 @@ class NoticeTableViewController: UITableViewController {
 
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+        //Lanzamos el segue para ir de un controlador a otro
         performSegueWithIdentifier("detailNews", sender:indexPath)
     }
 
-    
 
     //Añadir una nueva Noticia
     func addNews(sender : AnyObject){
-        //Lanzamos el segur para ir de un controlador a otro
+        //Lanzamos el segue para ir de un controlador a otro
         performSegueWithIdentifier("addNews", sender: sender)
         
     }
@@ -145,14 +151,13 @@ class NoticeTableViewController: UITableViewController {
         case "detailNews":
             let index = sender as? NSIndexPath
             let vc = segue.destinationViewController as! DetailNewsViewController
-            //Se pasa como parametro el client y el registro del modelo que se ha selsccionado.
+            //Se pasa como parametro el client y el registro del modelo que se ha seleccionado.
             //vc.client = client
             vc.model = model![(index?.row)!]
             break
         default: break
             
         }
-        
         
         
     }

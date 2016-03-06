@@ -61,7 +61,7 @@ class CreateNoticeViewController: UIViewController {
                     client!.currentUser = MSUser(userId: usrlogin.usr)
                     client!.currentUser.mobileServiceAuthenticationToken = usrlogin.tok
                     
-                //Usando la propiedad client accedemos a la tabla de los videos para poder insertar
+                //Usando la propiedad client se accede a la tabla de las noticias para poder insertar
                 let tablaVideos = client?.tableWithName("news")
         
                 tablaVideos?.insert(["title" : titleText.text!, "text" : textNews.text!, "author" : authorNews.text!, "createnews" : NSDate()], completion: { (inserted, error: NSError?) -> Void in
@@ -156,6 +156,7 @@ class CreateNoticeViewController: UIViewController {
                     
                     //URL completa para subir el recurso
                     endPoint += sasURL!
+                    print ("endpoint \(endPoint)")
                     
                     
                     //Obtenemos la referencia del container de Azure Storage

@@ -11,16 +11,22 @@ import UIKit
 class DetailNewsViewController: UIViewController {
     
     //Se define el client que se recibe como parametro del NoticeTable......
-    var client : MSClient?
+    //var client : MSClient?
     var model : AnyObject?
     
-
+    // MARK: - Properties
+    @IBOutlet weak var titleNews: UITextField!
+    
+    @IBOutlet weak var textNews: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         //self.title = model?.title
         self.title = model!["title"] as? String
+        self.titleNews.text = model!["title"] as? String
+        self.textNews.text = model!["text"] as? String
         
         
     }
